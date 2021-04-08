@@ -1,20 +1,15 @@
 pipeline {
     agent any
+    
+    tools {
+        node 'Node-15.14'
+    }
 
     stages {
-        stage('Build') {
+        stage('run frontend') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo 'executing yarn...'
+                sh 'yarn install'
             }
         }
     }
